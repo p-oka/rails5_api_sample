@@ -1,7 +1,7 @@
 ---
 "$schema": http://json-schema.org/draft-04/hyper-schema
-title: FIXME - User
-description: FIXME
+title: User
+description: User API
 stability: prototype
 strictProperties: true
 type:
@@ -9,70 +9,40 @@ type:
 definitions:
   id:
     description: unique identifier of user
+    example: 1
     readOnly: true
-    format: uuid
+    type:
+    - integer
+  name:
+    description: user name
+    example: 'kata0hka'
     type:
     - string
-  name:
-    description: unique name of user
-    readOnly: true
+  mail:
+    description: unique user email
+    example: 'kata0hka@gmail.com'
+    type:
+    - string
+  password:
+    description: user password
+    example: 'my_password'
     type:
     - string
   identity:
-    anyOf:
-    - "$ref": "/schemata/user#/definitions/id"
-    - "$ref": "/schemata/user#/definitions/name"
-  created_at:
-    description: when user was created
-    format: date-time
-    type:
-    - string
-  updated_at:
-    description: when user was updated
-    format: date-time
-    type:
-    - string
+    $ref: "/schemata/user#/definitions/id"
 links:
-- description: Create a new user.
-  href: "/users"
-  method: POST
-  rel: create
-  schema:
-    properties: {}
-    type:
-    - object
-  title: Create
-- description: Delete an existing user.
-  href: "/users/{(%2Fschemata%2Fuser%23%2Fdefinitions%2Fidentity)}"
-  method: DELETE
-  rel: destroy
-  title: Delete
 - description: Info for existing user.
   href: "/users/{(%2Fschemata%2Fuser%23%2Fdefinitions%2Fidentity)}"
   method: GET
   rel: self
   title: Info
-- description: List existing users.
-  href: "/users"
-  method: GET
-  rel: instances
-  title: List
-- description: Update an existing user.
-  href: "/users/{(%2Fschemata%2Fuser%23%2Fdefinitions%2Fidentity)}"
-  method: PATCH
-  rel: update
-  schema:
-    properties: {}
-    type:
-    - object
-  title: Update
 properties:
-  created_at:
-    "$ref": "/schemata/user#/definitions/created_at"
   id:
     "$ref": "/schemata/user#/definitions/id"
   name:
     "$ref": "/schemata/user#/definitions/name"
-  updated_at:
-    "$ref": "/schemata/user#/definitions/updated_at"
+  mail:
+    "$ref": "/schemata/user#/definitions/mail"
+  password:
+    "$ref": "/schemata/user#/definitions/password"
 id: schemata/user
