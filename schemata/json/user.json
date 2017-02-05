@@ -76,5 +76,14 @@
     "user": {
       "$ref": "#/definitions/user"
     }
-  }
+  },
+  "description": "Sample Rails5 API",
+  "id": "sample_rails_5",
+  "links": [
+    {
+      "href": "http://0.0.0.0:3000",
+      "rel": "self"
+    }
+  ],
+  "title": "Sample Rails5 API"
 }
