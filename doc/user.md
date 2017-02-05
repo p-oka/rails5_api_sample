@@ -1,27 +1,48 @@
-Error in resource: user
-[31mbundler: failed to load command: prmd (/usr/local/bundle/bin/prmd)[0m
-ArgumentError: invalid byte sequence in US-ASCII
-  /usr/local/bundle/gems/erubis-2.7.0/lib/erubis/converter.rb:132:in `scan'
-  /usr/local/bundle/gems/erubis-2.7.0/lib/erubis/converter.rb:132:in `convert_input'
-  /usr/local/bundle/gems/erubis-2.7.0/lib/erubis/converter.rb:36:in `convert'
-  /usr/local/bundle/gems/erubis-2.7.0/lib/erubis/engine.rb:30:in `initialize'
-  /usr/local/bundle/gems/prmd-0.13.0/lib/prmd/template.rb:45:in `new'
-  /usr/local/bundle/gems/prmd-0.13.0/lib/prmd/template.rb:45:in `load'
-  /usr/local/bundle/gems/prmd-0.13.0/lib/prmd/template.rb:54:in `load_template'
-  /usr/local/bundle/gems/prmd-0.13.0/lib/prmd/template.rb:64:in `render'
-  /usr/local/bundle/gems/prmd-0.13.0/lib/prmd/templates/schemata.md.erb:2:in `result'
-  /usr/local/bundle/gems/erubis-2.7.0/lib/erubis/evaluator.rb:65:in `eval'
-  /usr/local/bundle/gems/erubis-2.7.0/lib/erubis/evaluator.rb:65:in `result'
-  /usr/local/bundle/gems/prmd-0.13.0/lib/prmd/templates/schema.erb:9:in `block in result'
-  /usr/local/bundle/gems/prmd-0.13.0/lib/prmd/templates/schema.erb:5:in `map'
-  /usr/local/bundle/gems/prmd-0.13.0/lib/prmd/templates/schema.erb:5:in `result'
-  /usr/local/bundle/gems/erubis-2.7.0/lib/erubis/evaluator.rb:65:in `eval'
-  /usr/local/bundle/gems/erubis-2.7.0/lib/erubis/evaluator.rb:65:in `result'
-  /usr/local/bundle/gems/prmd-0.13.0/lib/prmd/core/renderer.rb:50:in `render'
-  /usr/local/bundle/gems/prmd-0.13.0/lib/prmd/commands/render.rb:34:in `render'
-  /usr/local/bundle/gems/prmd-0.13.0/lib/prmd/cli/doc.rb:65:in `execute'
-  /usr/local/bundle/gems/prmd-0.13.0/lib/prmd/cli/base.rb:141:in `run'
-  /usr/local/bundle/gems/prmd-0.13.0/lib/prmd/cli.rb:95:in `run'
-  /usr/local/bundle/gems/prmd-0.13.0/bin/prmd:6:in `<top (required)>'
-  /usr/local/bundle/bin/prmd:17:in `load'
-  /usr/local/bundle/bin/prmd:17:in `<top (required)>'
+
+## <a name="resource-user">User</a>
+
+Stability: `prototype`
+
+User API
+
+### Attributes
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **id** | *integer* | unique identifier of user | `1` |
+| **mail** | *string* | unique user email | `"kata0hka@gmail.com"` |
+| **name** | *string* | user name | `"kata0hka"` |
+| **password** | *string* | user password | `"my_password"` |
+
+### <a name="link-GET-user-/users/{(%23%2Fdefinitions%2Fuser%2Fdefinitions%2Fidentity)}">User Info</a>
+
+Info for existing user.
+
+```
+GET /users/{user_id}
+```
+
+
+#### Curl Example
+
+```bash
+$ curl -n http://0.0.0.0:3000/users/$USER_ID
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 200 OK
+```
+
+```json
+{
+  "id": 1,
+  "name": "kata0hka",
+  "mail": "kata0hka@gmail.com",
+  "password": "my_password"
+}
+```
+
+
