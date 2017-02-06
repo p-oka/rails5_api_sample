@@ -12,8 +12,6 @@ RUN apt-get update && \
 
 ENV LC_ALL=ja_JP.UTF-8
 
-RUN gem install bundler
-
 RUN mkdir $APP_ROOT
 WORKDIR $APP_ROOT
 
